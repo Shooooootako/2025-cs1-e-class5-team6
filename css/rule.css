@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: #f4f4f4; /* 背景色を薄いグレーに */
+    /* background-color: rgb(204, 196, 102); 最後のbody指定はこちらだったので、もしこちらが良ければ上の行を消してこの行を有効にしてください */
+}
+
+/* --- 左側のメニューエリア (.menu) --- */
+.menu {
+    flex: 0 0 300px; /* 幅を300pxに固定し、伸縮させない */
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px; /* 角を丸くする */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 軽い影をつける */
+    height: fit-content; /* 中身の高さに合わせる */
+}
+
+.menu img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* HTMLのh1に対するスタイルを追加しました */
+.menu h1 {
+    font-size: 1.8rem; /* 文字サイズを調整 */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.menu h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eeeeee; /* タイトルの下に区切り線 */
+    padding-bottom: 10px;
+}
+
+.menu p {
+    /* リンクボタンの上下に余白を持たせるため、.btn-link側でmarginを指定します */
+    margin: 0;
+}
+
+/* --- 目次のリンクボタン (.btn-link) --- */
+.btn-link {
+    display: block;
+    width: 80%; /* 親要素に対して80%の幅 */
+    margin: 0 auto 15px auto; /* 上下15px、左右は自動で中央揃え */
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none; /* リンクの下線を消す */
+    border-radius: 5px;
+    transition: background-color 0.3s; /* ホバー時の色変化を滑らかに */
+}
+
+.btn-link:hover {
+    background-color: #0056b3; /* マウスを乗せた時の色 */
+}
+
+/* --- 右側のコンテンツエリア (.context) --- */
+.context {
+    flex: 1; /* 残りの幅をすべて使う */
+    padding: 30px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.context h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* ul要素に対するスタイルを追加しました */
+.context ul {
+    padding-left: 40px; /* リストの左側の余白 */
+    width: 80%;
+}
