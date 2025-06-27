@@ -1,16 +1,28 @@
      img {
        width:200px;
-       height:100px;}
+       height:200px;}
 
 
     /* コンテナ */
-.menu {
+.menu  {
   background-color: #f9f9f9;      /* 背景色 */
   border: 1px solid #ccc;         /* グレーの枠線 */
   padding: 16px;                  /* 内側余白 */
   margin: 20px 0;                 /* 上下の余白 */
-  font-family: sans-serif;
+  font-family: sans-serif;    
+   position: relative;
+  width: 260px;           /* お好みで調整 */
+  margin-bottom: 30px;
+  font-family: "Yu Gothic", sans-serif;
+   flex: 0 0 240px;            /* 幅 240px 固定 */
+  box-sizing: border-box;
 }
+
+.menu p{
+   color: #0366d6;                 /* リンク色 */
+  text-decoration: underline;
+}
+
 
 /* タイトル（h3 = 目次） */
 .menu h3 {
@@ -38,33 +50,12 @@
   list-style-type: decimal;       /* "1. , 2. , …" */
 }
 
-/* リンクの見た目 */
-.menu {
-  color: #0366d6;                 /* リンク色 */
-  text-decoration: underline;     /* 下線 */
-}
-
-
-/* ------------------------------------------------------------
-   1) 親コンテナ
-   ------------------------------------------------------------ */
-.menu {
-  position: relative;
-  width: 260px;           /* お好みで調整 */
-  margin-bottom: 30px;
-  font-family: "Yu Gothic", sans-serif;
-}
-
-
-/* 目次は固定幅 */
-.menu {
-  flex: 0 0 240px;            /* 幅 240px 固定 */
-  box-sizing: border-box;
-}
 
 /* 本文は残り幅をすべて使う */
 .context {
   flex: 1;
   min-width: 0;               /* はみ出し防止 */
 }
+
+
 
