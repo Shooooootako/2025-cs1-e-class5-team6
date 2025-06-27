@@ -1,61 +1,66 @@
-     img {
-       width:200px;
-       height:200px;}
-
-
-    /* コンテナ */
-.menu  {
-  background-color: #f9f9f9;      /* 背景色 */
-  border: 1px solid #ccc;         /* グレーの枠線 */
-  padding: 16px;                  /* 内側余白 */
-  margin: 20px 0;                 /* 上下の余白 */
-  font-family: sans-serif;    
-   position: relative;
-  width: 260px;           /* お好みで調整 */
-  margin-bottom: 30px;
-  font-family: "Yu Gothic", sans-serif;
-   flex: 0 0 240px;            /* 幅 240px 固定 */
-  box-sizing: border-box;
+body {
+    display: flex;     /* bodyをFlexコンテナとし、子要素(.menu, .context)を横並びにする */
+    gap: 30px;         /* .menuと.contextの間に30pxの隙間を作る */
+    padding: 20px;     /* ページ全体の端に余白を作る */
+    margin: 0;         /* bodyのデフォルトマージンをリセット */
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: #f4f4f4; /* 背景色を薄いグレーに */
 }
 
-.menu p{
-   color: #0366d6;                 /* リンク色 */
-  text-decoration: underline;
+/* --------------------------------
+ 左側の目次エリア (.menu)
+-------------------------------- */
+.menu {
+    /* 幅を220pxに固定し、伸縮させない */
+    flex: 0 0 220px; 
+    
+    /* 見た目の調整 */
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 8px; /* 角を少し丸くする */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 軽い影をつける */
+    height: fit-content; /* 中身の高さに合わせる */
 }
 
+.menu img {
+    max-width: 100%; /* ロゴ画像がはみ出さないようにする */
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
 
-/* タイトル（h3 = 目次） */
 .menu h3 {
-  margin: 0 0 12px;               /* 下に少し余白 */
-  font-size: 1.25rem;             /* フォントサイズ */
-  font-weight: normal;            /* デフォルトの太さを調整 */
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eeeeee; /* タイトルの下に区切り線 */
+    padding-bottom: 10px;
 }
 
-/* リスト全体 */
-.menu ol {
-  margin: 0;                      /* 上下余白リセット */
-  padding-left: 1.5em;            /* 左インデント */
-  list-style-position: outside;   /* 番号を外側に */
-}
-
-/* 一段めのリスト項目 */
-.menu ol > li {
-  margin-bottom: 0.6em;           /* 項目間の余白 */
-  line-height: 1.6;               /* 行間 */
-}
-
-/* ネストしたリスト（二段め） */
-.menu ol li ol {
-  margin: 0.4em 0 0.6em 1.4em;    /* 上0.4, 下0.6, 左1.4emのインデント */
-  list-style-type: decimal;       /* "1. , 2. , …" */
+.menu p {
+    margin: 0 0 10px 0; /* 各リンクボタンの下に少し余白 */
 }
 
 
-/* 本文は残り幅をすべて使う */
-.context {
-  flex: 1;
-  min-width: 0;               /* はみ出し防止 */
+/* --------------------------------
+ 目次のリンクボタン (.btn-link)
+-------------------------------- */
+.btn-link {
+    display: block;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
+.btn-link:hover {
+    background-color: #0056b3;
+}
 
-
+img[src="./picture/title.png"] {
+    width: 600px; /* お好みの横幅を指定 */
+    height: 200px;
+}
