@@ -1,89 +1,196 @@
-@charset "UTF-8";
-
-.menu h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eeeeee; 
-    padding-bottom: 10px;
+/* ==================================================
+   Yu-Gi-Oh! THEME – GLOBAL DESIGN TOKENS
+   ================================================== */
+:root {
+/* COLOR PALETTE */
+--primary: #caa75a; /* Card‑edge Gold */
+--primary-hover: #d8b86c; /* Lighter Gold */
+--bg-dark: #1e1a13;  /* Duel Arena Black‑Brown */
+--bg-menu: #4e3924;  /* Card Back Brown */
+--bg-context: #f8f2e0; /* Ivory (Card Text Area) */
+--card-item-bg: #fffbf0;  /* Card Background */
+--white: #ffffff;
+--border-color: #b2955c; /* Gold Border */
+--text-dark: #2b220c;  /* Dark Brown Text */
+--shadow: rgba(0, 0, 0, 0.25);
+--menu-width: 300px;
 }
 
-.menu p {
-    margin: 0 0 50px 0; 
-}
-
+/* ==================================================
+   LAYOUT
+   ================================================== */
 body {
-    display: flex;
-    gap: 30px;
-    padding: 20px;
-    margin: 0;
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    background-color: rgb(204, 196, 102)
+display: flex;
+flex-direction: row;
+gap: 30px;
+padding: 20px;
+margin: 0;
+font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+background-color: var(--bg-dark);
+color: var(--text-dark);
+display: flex;
+gap: 30px;
+flex: 0 0 300px; 
 }
 
+/* ==================================================
+   SIDEBAR – MENU
+   ================================================== */
 .menu {
-    flex: 0 0 300px; 
+    flex: 0 0 var(--menu-width);
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    height: fit-content;
+    background-color: var(--bg-menu);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow);
+    color: var(--white);
+    height: fit-content; 
     width: 300px
 
     
 }
+
+
 
 .menu img {
     max-width: 100%;
     height: auto;
     display: block;
     margin-bottom: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
 }
 
+.menu h1 {
+    font-size: 1.9rem;
+    margin: 0 0 20px 0;
+    text-align: center;
+    color: var(--primary);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
+.menu h3 {
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.menu p {
+    margin: 0 0 15px 0;
+}
+
+/* Navigation Button */
 .btn-link {
     display: block;
-    width: 80%; 
-    margin: 0 auto 15px auto; 
+    width: 80%;
+    margin: 0 auto 15px auto;
     padding: 10px;
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: var(--primary);
+    color: #2b220c;
     text-align: center;
     text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-link.active {
+    background-color: var(--primary-hover);
+}
+/* ==================================================
+   MAIN CONTENT (anime.html)
+   ================================================== */
+main {
+    flex: 1;
     
 }
 
-.context {
-    flex: 1;
-    display: grid;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    width :135%;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    grid-template-rows: 200px 200px 200px;
-}
-
-.context ol {
-    text-align: left;
-    padding-left: 40px;
-    width: 80%;
-}
-
-.item {
-    background: #0bd;
-    color: #fff;
-    padding: 10px;
-    font-size: 35px;
+main > section > h1 {
+    display: block;
+    margin: 0 0 30px 0;
+    padding: 12px 28px;
     text-align: center;
+    font-size: 1.8rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    color: var(--text-dark);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 4px var(--shadow);
 }
 
-.context img p{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 200px;
+.context {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* カード間の隙間 */
 }
+
+/* ==================================================
+   SERIES CARD DESIGN
+   ================================================== */
+.series-block {
+    width: calc(50% - 15px); /* (100% / 2) - (gap / 2) */
+    box-sizing: border-box;
+    background-color: var(--card-item-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 角丸を画像に適用するため */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+/* カードヘッダー (デュエルモンスターズ, GX, etc.) */
+.series-block .item {
+    padding: 12px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    color: var(--text-dark);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.series-block img {
+    max-width: 150px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    background-color: var(--white);
+    padding: 5px;
+}
+
+.series-block p {
+    padding: 0 20px 20px 20px;
+    margin: 0;
+    text-align: left;
+    line-height: 1.6;
+    flex-grow: 1; /* カードの高さを揃える */
+}
+
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+@media (max-width: 1200px) {
+    .series-block {
+        width: 100%; /* 画面が狭い場合は1列にする */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+}
+
