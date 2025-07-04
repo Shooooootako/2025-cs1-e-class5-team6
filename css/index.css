@@ -161,10 +161,12 @@ body {
     margin: 0 0 20px 0;
 }
 
-.context ol {
+.context li {
     text-align: left;
     padding-left: 40px;
     width: 80%;
+    margin: 50px
+    
 }
 
 body{
@@ -173,4 +175,10 @@ body{
 
 }
 
+
+
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+    
+}
 
