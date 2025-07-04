@@ -1,92 +1,233 @@
-body {
-    display: flex;     
-    gap: 30px;         
-    padding: 20px;    
-    margin: 0;         
-    background-color: rgb(204, 196, 102)
+/* ==================================================
+   Yu-Gi-Oh! THEME – GLOBAL DESIGN TOKENS            
+   ================================================== */
+:root {
+    /* COLOR PALETTE */
+    --primary: #caa75a;
+    /* Card‑edge Gold */
+    --primary-hover: #d8b86c;
+    /* Lighter Gold */
+    --bg-dark: #1e1a13;
+    /* Duel Arena Black‑Brown */
+    --bg-menu: #4e3924;
+    /* Card Back Brown */
+    --bg-context: #f8f2e0;
+    /* Ivory (Card Text Area) */
+    --card-item: #d7c18c;
+    /* Beige (Card Surface) */
+    --white: #ffffff;
+    --border-color: #b2955c;
+    /* Gold Border */
+    --shadow: rgba(0, 0, 0, 0.25);
+    --menu-width: 300px;
 }
 
-
-.menu {
-    flex: 0 0 300px; 
+/* ==================================================
+   LAYOUT                                            
+   ================================================== */
+body {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    height: fit-content; 
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    background-color: var(--bg-dark);
+    color: #222;
+}
+
+/* ==================================================
+   SIDEBAR – MENU                                    
+   ================================================== */
+.menu {
+    flex: 0 0 var(--menu-width);
+    padding: 20px;
+    background-color: var(--bg-menu);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow);
+    color: var(--white);
+    height: fit-content;
 }
 
 .menu img {
-    max-width: 100%; 
+    max-width: 100%;
     height: auto;
     display: block;
     margin-bottom: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.menu h1 {
+    font-size: 1.9rem;
+    margin: 0 0 20px 0;
+    text-align: center;
+    color: var(--primary);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
 .menu h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eeeeee;
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid var(--primary);
     padding-bottom: 10px;
+    font-weight: 600;
 }
 
 .menu p {
-    margin: 0 0 50px 0;
+    margin: 0 0 15px 0;
 }
 
-
+/* Navigation Button */
 .btn-link {
     display: block;
+    width: 80%;
+    margin: 0 auto 15px auto;
     padding: 10px;
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: var(--primary);
+    color: #2b220c;
     text-align: center;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-     width: 80%; 
-    margin: 0 auto 15px auto;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.btn-link:hover {
-    background-color: #0056b3;
+.btn-link:hover,
+.btn-link:focus {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
 }
 
-
-.context img{
-    width: 600px; 
-    height: auto;   
+.btn-link.active {
+    background-color: var(--primary-hover);
 }
 
+/* ==================================================
+   MAIN CONTENT                                      
+   ================================================== */
 .context {
     flex: 1;
+    padding: 30px;
+    background-color: var(--bg-context);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
+}
+
+/* Title Image */
+.context img {
+    width: 600px;
+    height: auto;
+    border: 2px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px var(--shadow);
 }
 
+/* Heading (h2) – styled card */
 .context h2 {
-    margin: 0 0 20px 0;
+    display: inline-block;
+    margin: 20px auto 30px auto;
+    padding: 12px 28px;
+    text-align: center;
+    font-size: 1.6rem;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    color: #2b220c;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 4px var(--shadow);
 }
 
-.context li {
+/* --------------------------------------------------
+   Ordered List (Introduction Paragraphs)            
+   -------------------------------------------------- */
+.context ol {
+    counter-reset: intro-counter;
+    list-style: none;
+    /* remove default decimals */
+    padding-left: 0;
+    width: 90%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.context ol li {
+    position: relative;
+    background-color: var(--card-item);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    padding: 24px 24px 24px 72px;
+    /* room for custom number */
+    box-shadow: 0 2px 4px var(--shadow);
+    font-size: 1.05rem;
+    line-height: 1.6;
     text-align: left;
-    padding-left: 40px;
-    width: 80%;
-    margin: 50px;
-    border: 1px solid #ccc; 
-    padding: 50px;          
-    margin: 16px 0;   
-    font-size:20px;  
-    
 }
 
+/* Custom decimal marker */
+.context ol li::before {
+    counter-increment: intro-counter;
+    content: counter(intro-counter) '.';
+    position: absolute;
+    left: 24px;
+    top: 24px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4e3924;
+}
 
+/* Source links paragraph */
+.context p {
+    margin: 40px 0 0 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
 
+/* ==================================================
+   RESPONSIVE                                       
+   ================================================== */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
 
+    .menu {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .btn-link {
+        width: 100%;
+    }
+
+    .context {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .context img {
+        width: 100%;
+    }
+
+    .context ol li {
+        padding-left: 56px;
+    }
+
+    .context ol li::before {
+        left: 18px;
+    }
+}
+
+/* ==================================================
+   UTILITIES                                        
+   ================================================== */
+.hidden {
+    display: none !important;
+}
