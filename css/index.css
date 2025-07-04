@@ -1,28 +1,24 @@
 body {
-    display: flex;     /* bodyをFlexコンテナとし、子要素(.menu, .context)を横並びにする */
-    gap: 30px;         /* .menuと.contextの間に30pxの隙間を作る */
-    padding: 20px;     /* ページ全体の端に余白を作る */
-    margin: 0;         /* bodyのデフォルトマージンをリセット */
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    background-color: #f4f4f4; /* 背景色を薄いグレーに（#ffffffから変更） */
+    display: flex;     
+    gap: 30px;         
+    padding: 20px;    
+    margin: 0;         
+    background-color: rgb(204, 196, 102)
 }
 
 
 .menu {
-    /* 幅を300pxに固定し、伸縮させない */
     flex: 0 0 300px; 
-    
-    /* 見た目の調整 */
-    padding: 20px; /* ★修正：単位を「200x」から「20px」へ */
+    padding: 20px;
     background-color: #ffffff;
     border: 1px solid #dddddd;
-    border-radius: 8px; /* ★修正：数値を追記 */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 軽い影をつける */
-    height: fit-content; /* 中身の高さに合わせる */
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    height: fit-content; 
 }
 
 .menu img {
-    max-width: 100%; /* ロゴ画像がはみ出さないようにする */
+    max-width: 100%; 
     height: auto;
     display: block;
     margin-bottom: 20px;
@@ -31,12 +27,12 @@ body {
 .menu h3 {
     margin-top: 0;
     margin-bottom: 15px;
-    border-bottom: 1px solid #eeeeee; /* タイトルの下に区切り線 */
+    border-bottom: 1px solid #eeeeee;
     padding-bottom: 10px;
 }
 
 .menu p {
-    margin: 0 0 50px 0; /* 各リンクボタンの下に少し余白 */
+    margin: 0 0 50px 0;
 }
 
 
@@ -57,36 +53,8 @@ body {
 
 
 img[src="./picture/title.png"] {
-    width: 600px; /* お好みの横幅を指定 */
-    height: auto;   /* ★修正：画像の比率を保つため「auto」に変更 */
-}
-
-
-body {
-    display: flex;
-    gap: 30px;
-    padding: 20px;
-    margin: 0;
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    background-color: #f4f4f4;
-}
-
-
-.menu {
-    flex: 0 0 300px; 
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    height: fit-content;
-}
-
-.menu img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin-bottom: 20px;
+    width: 600px; 
+    height: auto;   
 }
 
 .menu h3 {
@@ -96,19 +64,10 @@ body {
     padding-bottom: 10px;
 }
 
-/* ★修正 */
-.menu p {
-    margin: 10; 
-}
-
-/* --------------------------------
- 目次のリンクボタン (.btn-link)
--------------------------------- */
-/* ★修正 */
 .btn-link {
     display: block;
-    width: 80%; /* 親要素に対して80%の幅 */
-    margin: 0 auto 15px auto; /* 上下15px、左右は自動で中央揃え */
+    width: 80%; 
+    margin: 0 auto 15px auto;
     padding: 10px;
     background-color: #007bff;
     color: #ffffff;
@@ -143,18 +102,17 @@ body {
     margin-bottom: 30px;
 }
 
-/* title-container内の画像サイズを調整 */
+
 .title-container img {
-    width: 150px; /* 画像の横幅を指定 */
+    width: 150px; 
     height: auto;
 }
 
-/* 横並びにしたh1の調整 */
+
 .title-container h1 {
     margin: 0;
     font-size: 2.5rem;
 }
-/* ▲▲▲ ここまで追加 ▲▲▲ */
 
 
 .context h2 {
@@ -165,20 +123,13 @@ body {
     text-align: left;
     padding-left: 40px;
     width: 80%;
-    margin: 50px
+    margin: 50px;
+    border-bottom: 2px solid #eee; 
+    padding-bottom: 16px;
+    margin-bottom: 24px;
     
 }
 
-body{
-    background-color: rgb(204, 196, 102)
 
 
-}
-
-
-
-body {
-  font-family: "M PLUS Rounded 1c", sans-serif;
-    
-}
 
