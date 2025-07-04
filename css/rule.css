@@ -8,7 +8,7 @@ body {
     /* background-color: rgb(204, 196, 102); 最後のbody指定はこちらだったので、もしこちらが良ければ上の行を消してこの行を有効にしてください */
 }
 
-/* --- 左側のメニューエリア (.menu) --- */
+
 .menu {
     flex: 0 0 300px; /* 幅を300pxに固定し、伸縮させない */
     padding: 20px;
@@ -26,7 +26,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* HTMLのh1に対するスタイルを追加しました */
 .menu h1 {
     font-size: 1.8rem; /* 文字サイズを調整 */
     margin-top: 0;
@@ -44,7 +43,6 @@ body {
     margin: 0 0 50px 0; /* 各リンクボタンの下に少し余白 */
 }
 
-/* --- 目次のリンクボタン (.btn-link) --- */
 .btn-link {
     display: block;
     width: 80%; /* 親要素に対して80%の幅 */
