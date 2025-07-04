@@ -1,22 +1,47 @@
+/* ===== 遊戯王テーマ配色 ===== */
+:root {
+    /* 基本色調 – 背面カードの茶・金・紅をイメージ */
+    --primary: #caa75a;
+    /* ゴールド系 (タイトル枠・強調) */
+    --primary-hover: #d8b86c;
+    /* ホバー時のゴールド */
+    --bg-dark: #1e1a13;
+    /* 全体背景 (闇のデュエルフィールド) */
+    --bg-menu: #4e3924;
+    /* メニュー (カード裏面ブラウン) */
+    --bg-context: #f8f2e0;
+    /* コンテンツ背景 (カードテキスト部の象牙色) */
+    --card-item: #d7c18c;
+    /* 召喚方法アイテム背景 */
+    --white: #ffffff;
+    --border-color: #b2955c;
+    /* ゴールド寄りボーダー */
+    --shadow: rgba(0, 0, 0, 0.25);
+    --menu-width: 300px;
+}
+
+/* --- 全体レイアウト --- */
 body {
     display: flex;
+    flex-direction: row;
     gap: 30px;
     padding: 20px;
     margin: 0;
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    background-color: #f4f4f4; /* 背景色を薄いグレーに */
-    /* background-color: rgb(204, 196, 102); 最後のbody指定はこちらだったので、もしこちらが良ければ上の行を消してこの行を有効にしてください */
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    background-color: var(--bg-dark);
+    color: #222;
 }
 
-
+/* 左側メニュー (カード裏面調) */
 .menu {
-    flex: 0 0 300px; /* 幅を300pxに固定し、伸縮させない */
+    flex: 0 0 var(--menu-width);
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px; /* 角を丸くする */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 軽い影をつける */
-    height: fit-content; /* 中身の高さに合わせる */
+    background-color: var(--bg-menu);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow);
+    height: fit-content;
+    color: var(--white);
 }
 
 .menu img {
@@ -24,60 +49,176 @@ body {
     height: auto;
     display: block;
     margin-bottom: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
 }
 
 .menu h1 {
-    font-size: 1.8rem; /* 文字サイズを調整 */
-    margin-top: 0;
-    margin-bottom: 20px;
+    font-size: 1.9rem;
+    margin: 0 0 20px 0;
+    text-align: center;
+    color: var(--primary);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
 .menu h3 {
-    margin-top: 0;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #eeeeee; /* タイトルの下に区切り線 */
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid var(--primary);
     padding-bottom: 10px;
+    font-weight: 600;
 }
 
 .menu p {
-    margin: 0 0 50px 0; /* 各リンクボタンの下に少し余白 */
+    margin: 0 0 15px 0;
 }
 
+/* 目次ボタン */
 .btn-link {
     display: block;
-    width: 80%; /* 親要素に対して80%の幅 */
-    margin: 0 auto 15px auto; /* 上下15px、左右は自動で中央揃え */
-    padding: 10px;
-    background-color: #007bff;
-    color: #ffffff;
-    text-align: center;
-    text-decoration: none; /* リンクの下線を消す */
-    border-radius: 5px;
-    transition: background-color 0.3s; /* ホバー時の色変化を滑らかに */
-}
-
-.btn-link:hover {
-    background-color: #0056b3; /* マウスを乗せた時の色 */
-}
-
-/* --- 右側のコンテンツエリア (.context) --- */
-.context {
-    flex: 1; /* 残りの幅をすべて使う */
-    padding: 30px;
-    background-color: #ffffff;
-    border: 1px solid #dddddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.context h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-/* ul要素に対するスタイルを追加しました */
-.context ul {
-    padding-left: 40px; /* リストの左側の余白 */
     width: 80%;
+    margin: 0 auto 15px auto;
+    padding: 10px;
+    background-color: var(--primary);
+    color: #2b220c;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
+.btn-link:hover,
+.btn-link:focus {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-link.active {
+    background-color: var(--primary-hover);
+}
+
+/* 右側コンテンツ */
+.context {
+    flex: 1;
+    padding: 30px;
+    background-color: var(--bg-context);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+/* 見出しカード化 */
+.context h3 {
+    display: inline-block;
+    margin: 0 auto 25px auto;
+    padding: 10px 24px;
+    text-align: center;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+    color: #2b220c;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+/* 召喚方法リスト */
+.context ul {
+    counter-reset: summon-counter;
+    list-style: none;
+    padding-left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.context li {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 18px 18px 18px 58px;
+    /* 左側に番号スペース */
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-item);
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+/* 自動番号 */
+.context li::before {
+    counter-increment: summon-counter;
+    content: counter(summon-counter) '.';
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #4e3924;
+}
+
+/* アイコン画像 */
+.context li img.summon-icon {
+    flex: 0 0 80px;
+    width: 80px;
+    height: auto;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px var(--shadow);
+}
+
+/* 召喚名詞タグ */
+.context li .summon-type {
+    display: inline-block;
+    padding: 4px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--white);
+    font-weight: 700;
+    color: #4e3924;
+    box-shadow: 0 1px 2px var(--shadow);
+    margin-bottom: 0.5rem;
+}
+
+/* 本文段落 */
+.context li p {
+    margin: 0.3rem 0 0 0;
+}
+
+/* --- レスポンシブ --- */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .menu {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .btn-link {
+        width: 100%;
+    }
+
+    .context {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .context li {
+        flex-direction: column;
+        padding-left: 48px;
+        /* 番号スペース調整 */
+    }
+
+    .context li img.summon-icon {
+        margin: 0 auto 10px auto;
+    }
+}
+
+/* --- ユーティリティ --- */
+.hidden {
+    display: none !important;
+}
