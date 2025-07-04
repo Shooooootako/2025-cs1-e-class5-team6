@@ -81,3 +81,9 @@ body {
     font-size: 35px;
     text-align: center;
 }
+
+.context img p{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 200px;
+}
